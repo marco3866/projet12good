@@ -5,7 +5,12 @@ import headerLogo from '../../assets/images/headerLogo.svg';
 const Header = () => {
   return (
     <header className="header">
-      <img src={headerLogo} alt="SportSee Logo" className="header-logo" />
+      <div className="header-logo-container">
+        <div className="header-logo-background">
+          <img src={headerLogo} alt="SportSee Logo" className="header-logo" />
+        </div>
+        <span className="header-logo-text">SportSee</span>
+      </div>
       <nav className="header-nav">
         <a href="/">Accueil</a>
         <a href="/profile">Profil</a>
