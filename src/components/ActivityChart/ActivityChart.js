@@ -4,31 +4,7 @@ import {
 } from 'recharts';
 import './ActivityChart.css';
 
-const data = [
-  {
-    name: '1', poids: 80, calories: 240,
-  },
-  {
-    name: '2', poids: 80, calories: 220,
-  },
-  {
-    name: '3', poids: 81, calories: 280,
-  },
-  {
-    name: '4', poids: 81, calories: 290,
-  },
-  {
-    name: '5', poids: 80, calories: 160,
-  },
-  {
-    name: '6', poids: 78, calories: 162,
-  },
-  {
-    name: '7', poids: 76, calories: 390,
-  },
-];
-
-const ActivityChart = () => (
+const ActivityChart = ({ data }) => (
   <div className="ActivityChart">
     <div className="chart-header">
       <h2>Activité quotidienne</h2>
@@ -49,11 +25,11 @@ const ActivityChart = () => (
         }}
         barSize={10} // Ajustez cette valeur pour affiner les barres
       >
-        <CartesianGrid vertical={false} horizontal={true} strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
+        <CartesianGrid vertical={true} horizontal={false} strokeDasharray="3 3" />
+        <XAxis dataKey="day" />
         <YAxis />
         <Tooltip />
-        <Bar dataKey="poids" fill="#000" />
+        <Bar dataKey="kilogram" fill="#000" />
         <Bar dataKey="calories" fill="#ff0000" />
       </BarChart>
     </ResponsiveContainer>
