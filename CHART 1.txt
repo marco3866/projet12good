@@ -1,0 +1,21 @@
+Voici la correspondance des images avec les composants :
+
+ - ActivityChart
+ - AverageSessionsChart
+ - PerformanceChart
+ - ScoreChart
+ - KeyInfoCard
+
+
+Plusieurs chose :
+
+Changer le sens 
+Point en haut :
+iNTENSITY ----- Intensité
+speed ----- Vitesse
+strength ----- Force 
+endurance ----- Endurance
+Energy ----- Energie
+Cardio ------ Cardio
+
+

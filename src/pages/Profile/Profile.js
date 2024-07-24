@@ -38,7 +38,7 @@ const Profile = () => {
                     <div className="small-charts">
                         <AverageSessionsChart data={averageSessionsData} />
                         <PerformanceChart data={performanceData.data} kind={performanceData.kind} />
-                        <ScoreChart score={userData.todayScore} />
+                        <ScoreChart score={userData} /> {/* Passez les données utilisateur complètes */}
                     </div>
                 </div>
                 <div className="key-info">

@@ -1,20 +1,38 @@
 // src/components/PerformanceChart/PerformanceChart.js
 import React from 'react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
+import CustomTooltip from './CustomTooltip';
 import './PerformanceChart.sass';
 
 const PerformanceChart = ({ data, kind }) => {
+    const kindMapping = {
+        intensity: 'Intensité',
+        speed: 'Vitesse',
+        strength: 'Force',
+        endurance: 'Endurance',
+        energy: 'Énergie',
+        cardio: 'Cardio'
+    };
+
     const formattedData = data.map(item => ({
         ...item,
-        kind: kind[item.kind]
-    }));
+        kind: kindMapping[kind[item.kind]]
+    })).sort((a, b) => {
+        const order = ['Intensité', 'Vitesse', 'Force', 'Endurance', 'Énergie', 'Cardio'];
+        return order.indexOf(a.kind) - order.indexOf(b.kind);
+    });
+
     return (
-        <RadarChart cx={300} cy={250} outerRadius={150} width={600} height={500} data={formattedData}>
-            <PolarGrid />
-            <PolarAngleAxis dataKey="kind" />
-            <PolarRadiusAxis />
-            <Radar name="Performance" dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-        </RadarChart>
+        <div className="PerformanceChart">
+            <ResponsiveContainer width="100%" height="100%">
+                <RadarChart cx="50%" cy="50%" outerRadius="70%" data={formattedData}>
+                    <PolarGrid stroke="#fff" />
+                    <PolarAngleAxis dataKey="kind" stroke="#fff" />
+                    <Tooltip content={<CustomTooltip />} cursor={{ fill: 'transparent' }} />
+                    <Radar name="Performance" dataKey="value" stroke="#ff0000" fill="#ff0000" fillOpacity={0.6} />
+                </RadarChart>
+            </ResponsiveContainer>
+        </div>
     );
 };
 
