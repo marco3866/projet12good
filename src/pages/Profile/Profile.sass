@@ -1,2 +1,27 @@
 .profile
-  // Ajoutez vos styles ici
+  display: flex
+  flex-direction: column
+  align-items: center
+  .highlight
+    color: red
+  .dashboard
+    display: flex
+    width: 100%
+    .charts
+      display: flex
+      flex-direction: column
+      width: 75%
+      .small-charts
+        display: flex
+        justify-content: space-between
+        margin-top: 20px
+        .small-chart
+          width: 30%
+          margin-right: 1.5%
+          &:last-child
+            margin-right: 0
+    .key-info
+      width: 25%
+      display: flex
+      flex-direction: column
+      gap: 20px

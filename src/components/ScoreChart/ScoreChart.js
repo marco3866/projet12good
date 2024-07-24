@@ -1,41 +1,43 @@
-// src/components/ScoreChart/ScoreChart.js
 import React from 'react';
-import { RadialBarChart, RadialBar, Legend } from 'recharts';
+import PropTypes from 'prop-types';
+import { PieChart, Pie, Cell } from 'recharts';
 import './ScoreChart.sass';
 
 const ScoreChart = ({ score }) => {
-    const data = [
-        {
-            name: 'Score',
-            value: score,
-            fill: '#8884d8'
-        },
-        {
-            name: 'Remainder',
-            value: 1 - score,
-            fill: '#e0e0e0'
-        }
-    ];
+  const data = [
+    { value: score },
+    { value: 100 - score },
+  ];
 
-    return (
-        <RadialBarChart
-            width={500}
-            height={300}
-            cx={150}
-            cy={150}
-            innerRadius={20}
-            outerRadius={140}
-            barSize={10}
-            data={data}
+  return (
+    <div className="score-chart">
+      <h2>Score</h2>
+      <PieChart width={200} height={200}>
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          innerRadius={70}
+          outerRadius={80}
+          startAngle={90}
+          endAngle={450}
+          paddingAngle={5}
+          dataKey="value"
         >
-            <RadialBar
-                minAngle={15}
-                clockWise
-                dataKey="value"
-            />
-            <Legend iconSize={10} layout="vertical" verticalAlign="middle" align="right" />
-        </RadialBarChart>
-    );
+          <Cell key="score" fill="#ff0000" cornerRadius={10} />
+          <Cell key="rest" fill="#fbfbfb" />
+        </Pie>
+      </PieChart>
+      <div className="score-info">
+        <span className="score-percentage">{score}%</span>
+        <span className="score-label">de votre objectif</span>
+      </div>
+    </div>
+  );
+};
+
+ScoreChart.propTypes = {
+  score: PropTypes.number.isRequired,
 };
 
 export default ScoreChart;

@@ -6,10 +6,10 @@ import AverageSessionsChart from '../../components/AverageSessionsChart/AverageS
 import PerformanceChart from '../../components/PerformanceChart/PerformanceChart';
 import ScoreChart from '../../components/ScoreChart/ScoreChart';
 import KeyInfoCard from '../../components/KeyInfoCard/KeyInfoCard';
-import caloriesIcon from '../../assets/images/dumbbell.svg'; // Mettez à jour avec les bons noms de fichiers
-import proteinIcon from '../../assets/images/swim.svg';    // Mettez à jour avec les bons noms de fichiers
-import carbsIcon from '../../assets/images/bike.svg';      // Mettez à jour avec les bons noms de fichiers
-import lipidsIcon from '../../assets/images/yoga.svg';     // Mettez à jour avec les bons noms de fichiers
+import caloriesIcon from '../../assets/images/fire.svg';
+import proteinIcon from '../../assets/images/chicken.svg';
+import carbsIcon from '../../assets/images/apple.svg';
+import lipidsIcon from '../../assets/images/burger.svg';
 import './Profile.sass';
 
 const Profile = () => {
@@ -30,16 +30,23 @@ const Profile = () => {
 
     return (
         <div className="profile">
-            <h1>Bonjour {userData.userInfos.firstName}</h1>
-            <ActivityChart data={activityData} />
-            <AverageSessionsChart data={averageSessionsData} />
-            <PerformanceChart data={performanceData.data} kind={performanceData.kind} />
-            <ScoreChart score={userData.todayScore} />
-            <div className="key-info-cards">
-                <KeyInfoCard icon={caloriesIcon} value={`${userData.keyData.calorieCount}kCal`} label="Calories" />
-                <KeyInfoCard icon={proteinIcon} value={`${userData.keyData.proteinCount}g`} label="Proteins" />
-                <KeyInfoCard icon={carbsIcon} value={`${userData.keyData.carbohydrateCount}g`} label="Carbohydrates" />
-                <KeyInfoCard icon={lipidsIcon} value={`${userData.keyData.lipidCount}g`} label="Lipids" />
+            <h1>Bonjour <span className="highlight">{userData.userInfos.firstName}</span></h1>
+            <p>Félicitation ! Vous avez explosé vos objectifs hier <span role="img" aria-label="celebration">🎉</span></p>
+            <div className="dashboard">
+                <div className="charts">
+                    <ActivityChart data={activityData} />
+                    <div className="small-charts">
+                        <AverageSessionsChart data={averageSessionsData} />
+                        <PerformanceChart data={performanceData.data} kind={performanceData.kind} />
+                        <ScoreChart score={userData.todayScore} />
+                    </div>
+                </div>
+                <div className="key-info">
+                    <KeyInfoCard icon={caloriesIcon} value={`${userData.keyData.calorieCount}kCal`} label="Calories" />
+                    <KeyInfoCard icon={proteinIcon} value={`${userData.keyData.proteinCount}g`} label="Proteins" />
+                    <KeyInfoCard icon={carbsIcon} value={`${userData.keyData.carbohydrateCount}g`} label="Carbohydrates" />
+                    <KeyInfoCard icon={lipidsIcon} value={`${userData.keyData.lipidCount}g`} label="Lipids" />
+                </div>
             </div>
         </div>
     );
