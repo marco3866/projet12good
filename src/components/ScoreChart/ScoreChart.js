@@ -14,27 +14,29 @@ const ScoreChart = ({ score }) => {
   return (
     <div className="score-chart">
       <h2>Score</h2>
-      <ResponsiveContainer width="100%" height={200}>
-        <PieChart>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            innerRadius={70}
-            outerRadius={80}
-            startAngle={90}
-            endAngle={450}
-            paddingAngle={5}
-            dataKey="value"
-          >
-            <Cell key="score" fill="#ff0000" cornerRadius={10} />
-            <Cell key="rest" fill="#fbfbfb" />
-          </Pie>
-        </PieChart>
-      </ResponsiveContainer>
-      <div className="score-info">
-        <span className="score-percentage">{percentage}%</span>
-        <span className="score-label">de votre objectif</span>
+      <div className="pie-chart-container">
+        <ResponsiveContainer width="100%" height={200}>
+          <PieChart>
+            <Pie
+              data={data}
+              cx="50%"
+              cy="50%"
+              innerRadius={70}
+              outerRadius={80}
+              startAngle={90}
+              endAngle={450}
+              paddingAngle={5}
+              dataKey="value"
+            >
+              <Cell key="score" fill="#ff0000" cornerRadius={10} />
+              <Cell key="rest" fill="#fbfbfb" />
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
+        <div className="score-info">
+          <span className="score-percentage">{percentage}%</span>
+          <span className="score-label">de votre objectif</span>
+        </div>
       </div>
     </div>
   );

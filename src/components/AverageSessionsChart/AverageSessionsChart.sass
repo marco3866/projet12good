@@ -1,16 +1,18 @@
 // src/components/AverageSessionsChart/AverageSessionsChart.sass
 .AverageSessionsChart
-  width: 100% // Ajuster la largeur à 33%
+  width: 100%
   height: 300px
   background-color: #ff0000
   border-radius: 10px
   padding: 20px
   color: #fff
+  position: relative
+  margin-right: 20px // Ajoutez une marge à droite
 
 .chart-header h2
-  font-size: 14px // Réduire la taille de la police pour le titre
+  font-size: 14px
   margin-bottom: 20px
-  color: rgba(255, 255, 255, 0.8) // Blanc plus clair
+  color: rgba(255, 255, 255, 0.8)
 
 .recharts-wrapper
   width: 100% !important
@@ -24,7 +26,7 @@
 
 .recharts-cartesian-axis-tick
   font-size: 14px
-  color: rgba(255, 255, 255, 0.8) !important // Blanc plus clair
+  color: rgba(255, 255, 255, 0.8) !important
 
 .recharts-tooltip-wrapper .recharts-default-tooltip
   background-color: #ff0000
@@ -40,4 +42,23 @@
 
 .recharts-cartesian-grid-horizontal,
 .recharts-cartesian-grid-vertical
+  display: none
+
+.custom-tooltip
+  background-color: #000
+  color: #fff
+  padding: 5px
+  border-radius: 5px
+
+.overlay
+  position: absolute
+  top: 0
+  bottom: 0
+  right: 0
+  background-color: rgba(0, 0, 0, 0.5)
+  z-index: 1
+  width: 0%
+  transition: left 0.2s ease, width 0.2s ease
+
+.recharts-tooltip-cursor
   display: none
