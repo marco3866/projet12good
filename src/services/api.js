@@ -1,18 +1,23 @@
 import axios from 'axios';
-import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from './data';
+
+const BASE_URL = 'http://localhost:3000'; // Assurez-vous que c'est le bon port du backend
 
 export const getUserData = async (id) => {
-    return USER_MAIN_DATA.find(user => user.id === parseInt(id));
+    const response = await axios.get(`${BASE_URL}/user/${id}`);
+    return response.data;
 };
 
 export const getUserActivity = async (id) => {
-    return USER_ACTIVITY.find(activity => activity.userId === parseInt(id));
+    const response = await axios.get(`${BASE_URL}/user/${id}/activity`);
+    return response.data;
 };
 
 export const getUserAverageSessions = async (id) => {
-    return USER_AVERAGE_SESSIONS.find(session => session.userId === parseInt(id));
+    const response = await axios.get(`${BASE_URL}/user/${id}/average-sessions`);
+    return response.data;
 };
 
 export const getUserPerformance = async (id) => {
-    return USER_PERFORMANCE.find(performance => performance.userId === parseInt(id));
+    const response = await axios.get(`${BASE_URL}/user/${id}/performance`);
+    return response.data;
 };
