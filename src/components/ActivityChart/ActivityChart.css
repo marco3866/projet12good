@@ -40,7 +40,7 @@
 
 /* Assurez-vous que l'axe X est visible uniquement dans ActivityChart */
 .ActivityChart .recharts-xAxis .recharts-cartesian-axis-line {
-  stroke: #000;
+  stroke: #e6e3e3;
   stroke-width: 2px;
 }
 
