@@ -2,23 +2,45 @@
   display: flex
   flex-direction: column
   align-items: center
-  .highlight
-    color: red
+  padding: 20px
+  width: 100%
+
+  // Section de bienvenue
+  .welcome-section
+    width: 100%  // Ajustez la largeur si nécessaire
+    text-align: left  // Alignement du texte à gauche
+    margin-bottom: 20px
+
+    h1
+      font-size: 36px  // Taille du texte pour "Bonjour"
+      .highlight
+        color: red  // Couleur rouge pour le prénom
+
+    p
+      font-size: 20px  // Taille du texte pour le message de félicitations
+      margin-top: 10px
+
   .dashboard
     display: flex
     width: 100%
+
+    // Zone des graphiques
     .charts
       display: flex
       flex-direction: column
       width: 80%
+
       .small-charts
         display: flex
         justify-content: space-between
         margin-top: 20px
+
         .small-chart
           width: 30%
           &:last-child
             margin-right: 0
+
+    // Informations clés
     .key-info
       width: 15%
       display: flex

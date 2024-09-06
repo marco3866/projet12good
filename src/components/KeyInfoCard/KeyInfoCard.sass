@@ -6,19 +6,45 @@
   border-radius: 5px
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
   transition: transform 0.3s
+  margin-left: 20px
+  margin-top: 40px
 
   &:hover
     transform: scale(1.05)
 
-  .key-info-icon
-    width: 60px
-    height: 60px
+  // Conteneur de l'icône avec un fond de couleur et bords arrondis
+  .key-info-icon-container
+    padding: 8px
+    border-radius: 10px
     margin-right: 20px
+    width: 50px
+    height: 50px
+    display: flex
+    align-items: center
+    justify-content: center
+
+  .key-info-icon
+    width: 24px
+    height: 24px
 
   .key-info-value
-    font-size: 20px
+    font-size: 18px
     font-weight: bold
+    color: #000  // Couleur du texte en noir
 
   .key-info-label
-    font-size: 14px
+    font-size: 12px
     color: gray
+
+  // Styles spécifiques pour chaque carte, en fonction de la position de l'élément
+  &:nth-child(1) .key-info-icon-container
+    background-color: #ffebeb  // Couleur de fond pour Calories
+
+  &:nth-child(2) .key-info-icon-container
+    background-color: #e0f7ff  // Couleur de fond pour Protéines
+
+  &:nth-child(3) .key-info-icon-container
+    background-color: #fff4db  // Couleur de fond pour Glucides
+
+  &:nth-child(4) .key-info-icon-container
+    background-color: #fde8e8  // Couleur de fond pour Lipides

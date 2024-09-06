@@ -57,8 +57,10 @@ const Profile = () => {
 
     return (
         <div className="profile">
-            <h1>Bonjour <span className="highlight">{userData.userInfos.firstName}</span></h1>
-            <p>Félicitation ! Vous avez explosé vos objectifs hier <span role="img" aria-label="celebration">🎉</span></p>
+            <div className="welcome-section"> {/* Section alignée à gauche pour le texte de bienvenue */}
+                <h1>Bonjour <span className="highlight">{userData.userInfos.firstName}</span></h1>
+                <p>Félicitation ! Vous avez explosé vos objectifs hier <span role="img" aria-label="celebration">🎉</span></p>
+            </div>
             <div className="dashboard">
                 <div className="charts">
                     <ActivityChart data={activityData} />
@@ -69,10 +71,30 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className="key-info">
-                    <KeyInfoCard icon={caloriesIcon} value={`${userData.keyData.calorieCount}kCal`} label="Calories" />
-                    <KeyInfoCard icon={proteinIcon} value={`${userData.keyData.proteinCount}g`} label="Proteins" />
-                    <KeyInfoCard icon={carbsIcon} value={`${userData.keyData.carbohydrateCount}g`} label="Carbohydrates" />
-                    <KeyInfoCard icon={lipidsIcon} value={`${userData.keyData.lipidCount}g`} label="Lipids" />
+                    <KeyInfoCard 
+                      icon={caloriesIcon} 
+                      value={`${userData.keyData.calorieCount}kCal`} 
+                      label="Calories" 
+                      backgroundColor="#ffebeb" // Couleur pour Calories
+                    />
+                    <KeyInfoCard 
+                      icon={proteinIcon} 
+                      value={`${userData.keyData.proteinCount}g`} 
+                      label="Proteins" 
+                      backgroundColor="#e0f7ff" // Couleur pour Proteins
+                    />
+                    <KeyInfoCard 
+                      icon={carbsIcon} 
+                      value={`${userData.keyData.carbohydrateCount}g`} 
+                      label="Carbohydrates" 
+                      backgroundColor="#fff5e0" // Couleur pour Carbohydrates
+                    />
+                    <KeyInfoCard 
+                      icon={lipidsIcon} 
+                      value={`${userData.keyData.lipidCount}g`} 
+                      label="Lipids" 
+                      backgroundColor="#ffe0e5" // Couleur pour Lipids
+                    />
                 </div>
             </div>
         </div>
